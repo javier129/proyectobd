@@ -15,10 +15,19 @@ Route::get('/t', function () {
     return view('welcome');
 });
 Route::get('/', function () {
-    return view('hola');
+    return view('');
+});
+Route::get('/cargos', function(){
+    return view('cargos');
 });
 
+Route::post('/buscar_cargos', 'CargoController@buscar');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Route::group(['prefix' => 'cargos'], function(){
+//    Route::post('/search-fields', 'CargoController@buscar');
+//});
