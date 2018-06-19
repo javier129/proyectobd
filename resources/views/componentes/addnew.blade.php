@@ -18,3 +18,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('#btn-add-new').click(function() {
+            $('div#oculto').toggle('slow');
+        });
+    });
+</script>

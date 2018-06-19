@@ -23,9 +23,10 @@ class CargoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $query = $request->input('input_1');
+        return response()->json($query);
     }
 
     /**
@@ -36,7 +37,16 @@ class CargoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $query = $request->input('query');
+        $cargos = <<<EOT
+            <div>
+                <span>Enmanuel</span><br>
+                <span>Gil</span><br>
+                <span>Adolfredo</span><br>
+                <span>K1</span><br>
+            </div>
+EOT;
+        return response()->json($cargos);
     }
 
     /**
@@ -50,17 +60,6 @@ class CargoController extends Controller
         //
     }
 
-    public function buscar(){
-        $cargos = <<<EOT
-            <div>
-                <span>Enmanuel</span><br>
-                <span>Gil</span><br>
-                <span>Adolfredo</span><br>
-                <span>K1</span><br>
-            </div>
-EOT;
-        return response()->json($cargos);
-    }
 
     /**
      * Show the form for editing the specified resource.

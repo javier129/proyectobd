@@ -11,23 +11,20 @@
 |
 */
 
-Route::get('/t', function () {
-    return view('welcome');
-});
-Route::get('/', function () {
-    return view('');
-});
-Route::get('/cargos', function(){
-    return view('cargos');
-});
-
-Route::post('/buscar_cargos', 'CargoController@buscar');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-//Route::group(['prefix' => 'cargos'], function(){
-//    Route::post('/search-fields', 'CargoController@buscar');
-//});
+Route::group(['prefix' => 'admin'], function(){
+
+    //////////////////////Cargos////////////////////
+    Route::group(['prefix' => 'cargos'], function(){
+        Route::get('/', function(){
+            return view('cargos');
+        });
+        Route::post('/buscar','CargoController@store');
+        Route::post('/add_new', 'CargoController@create');
+    });
+    ////////////////////////////////////////////////
+});
