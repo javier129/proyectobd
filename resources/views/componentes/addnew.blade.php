@@ -23,6 +23,7 @@
     $(document).ready(function(){
         $('#btn-add-new').click(function() {
             $('div#oculto').toggle('slow');
+            $('div.content-search').html('');
         });
     });
 </script>

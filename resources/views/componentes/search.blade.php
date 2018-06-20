@@ -33,8 +33,38 @@
                 data:{_token:$token, query: $query},
             }).done(function(data){
                 $('div.content-search').html(data);
+                $('div.content-search').slideDown();
+                bindItems();
             });
         });
+
+        function bindItems(){
+            $('.search-result').click(function(e){
+                e.preventDefault();
+                $('div.content-search').slideUp();
+                $('#oculto_view').toggle('slow');
+                var $id = $(this).attr('data-id');
+                $('div.head-view').find('span.head').html('Registro '+ $id);
+                getItem($id);
+            });
+        }
+
+        function getItem($id) {
+            console.log('hey desde el get item');
+            $.ajax({
+                type:'GET',
+                url: "{{url('admin/'.$mod.'/get_item')}}",
+                dataType:'json',
+                data: {id: $id}
+            }).done(function(data) {
+                $('div.body-view').find('div.content').html(data);
+                $('button#delete-register').attr('data-id', $id);
+                $('button#edit-register').attr('data-id', $id);
+                $('#cerrar_view').click(function() {
+                    $('#oculto_view').toggle('slow');
+                });
+            });
+        }
 
     });
 </script>

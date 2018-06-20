@@ -15,7 +15,11 @@ class CargoController extends Controller
      */
     public function index()
     {
-        //
+        return view('cargos')->with(array(
+            'mod' => 'cargos',
+            'count' => 1,
+            'header' => 'Cargos'
+        ));
     }
 
     /**
@@ -39,11 +43,9 @@ class CargoController extends Controller
     {
         $query = $request->input('query');
         $cargos = <<<EOT
-            <div>
-                <span>Enmanuel</span><br>
-                <span>Gil</span><br>
-                <span>Adolfredo</span><br>
-                <span>K1</span><br>
+            <div class="list-group">
+                <a href="#" class="list-group-item search-result" data-id="1">Presidente</a>
+                <a href="#" class="list-group-item search-result" data-id="2">Consejero</a>
             </div>
 EOT;
         return response()->json($cargos);
@@ -55,9 +57,24 @@ EOT;
      * @param  \App\Cargo  $cargo
      * @return \Illuminate\Http\Response
      */
-    public function show(Cargo $cargo)
+    public function show(Request $request)
     {
-        //
+        $id = $request->input('id');
+        if($id==1) {
+            $output = <<<EOT
+            <label>Nombre del cargo</label><br>
+            <label for=""> Presidente</label><br>
+            <label for="">Puto el que lo lea</label>
+EOT;
+        }
+        else{
+            $output = <<<EOT
+            <label>Nombre del cargo</label><br>
+            <label for="">Consejero</label><br>
+            <label for="">Puto el que lo lea</label>
+EOT;
+        }
+        return response()->json($output);
     }
 
 
@@ -79,9 +96,9 @@ EOT;
      * @param  \App\Cargo  $cargo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cargo $cargo)
+    public function update(Request $request)
     {
-        //
+        return response()->json('hey');
     }
 
     /**
@@ -90,8 +107,11 @@ EOT;
      * @param  \App\Cargo  $cargo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cargo $cargo)
+    public function destroy(Request $request)
     {
-        //
+
+        $id = $request->input('id');
+
+        return response()->json($id);
     }
 }

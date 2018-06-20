@@ -11,7 +11,7 @@
 
             {{ $inputs }}
 
-            <button class="btn btn-danger" id="send" >Send</button>
+            <button class="btn btn-danger" id="send" >Agregar</button>
         </form>
     </div>
 </div>

@@ -20,11 +20,15 @@ Route::group(['prefix' => 'admin'], function(){
 
     //////////////////////Cargos////////////////////
     Route::group(['prefix' => 'cargos'], function(){
-        Route::get('/', function(){
-            return view('cargos');
-        });
+        Route::get('/', 'CargoController@index');
         Route::post('/buscar','CargoController@store');
         Route::post('/add_new', 'CargoController@create');
+        Route::get('/get_item', 'CargoController@show');
+        Route::get('/delete_item', 'CargoController@destroy');
+        Route::post('/edit', 'CargoController@update');
     });
     ////////////////////////////////////////////////
+
+
+
 });
