@@ -11,11 +11,8 @@
 |
 */
 
-Route::get('/t', function () {
-    return view('welcome');
-});
-Route::get('/', function () {
-    return view('hola');
+Route::get('/login', function () {
+    return view('auth.login');
 });
 
 
