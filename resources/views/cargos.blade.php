@@ -7,12 +7,22 @@
     {{--Componente para agregar nuevo--}}
     @component('componentes.addnew')
         @slot('header', $header)
-        @slot('count', $count)
+        @slot('count', $cantidad)
     @endcomponent
     <br>
     {{--Componente de la barra de busqueda--}}
     @component('componentes.search')
         @slot('mod', $mod)
+        @slot('inputs')
+            <div class="form-group">
+                <label for="tipo">Buscar Por</label>
+                <select name="tipo" id="tipo" class="form-control">
+                    <option value="0">Profesores</option>
+                    <option value="1">Egresados</option>
+                    <option value="3">Todos</option>
+                </select>
+            </div>
+        @endslot
     @endcomponent
     <br>
 
@@ -22,11 +32,14 @@
         @slot('inputs')
             <div class="form-group">
                 <label for="input_1">Nombre</label>
-                <input type="text" class="form-control" id="input_1" name="input_1">
+                <input type="text" class="form-control" id="nombre" name="nombre">
             </div>
             <div class="form-group">
-                <label for="input_2">Codigo</label>
-                <input type="text" class="form-control" id="input_2" name="input_2">
+                <select name="tipo" id="tipo" class="form-control">
+                    <option value="0">Profesores</option>
+                    <option value="1">Egresados</option>
+                    <option value="3">Todos</option>
+                </select>
             </div>
         @endslot
     @endcomponent
@@ -42,12 +55,15 @@
         @slot('mod', $mod)
         @slot('inputs')
             <div class="form-group">
-                <label for="input_edit_1">Nombre</label>
-                <input type="text" class="form-control" id="input_edit_1" name="input_edit_1">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre">
             </div>
             <div class="form-group">
-                <label for="input_edit_2">Codigo</label>
-                <input type="text" class="form-control" id="input_edit_2" name="input_edit_2">
+                <select name="tipo" id="tipo" class="form-control">
+                    <option value="0">Profesores</option>
+                    <option value="1">Egresados</option>
+                    <option value="3">Todos</option>
+                </select>
             </div>
         @endslot
     @endcomponent

@@ -33,7 +33,8 @@
                 dataType: 'json',
                 data:$frm.serialize(),
             }).done(function(data){
-
+                console.log(data);
+                $('#oculto').slideToggle('slow');
             });
         });
 

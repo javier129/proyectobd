@@ -29,6 +29,7 @@
                 data:{id: $id},
             }).done(function(data){
                 alert('Se ha eliminado el registro '+data);
+                $('#oculto_view').slideToggle('slow');
             });
         });
 

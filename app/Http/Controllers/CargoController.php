@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 class CargoController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +18,7 @@ class CargoController extends Controller
         $count = Cargo::cantidad();
         return view('cargos')->with(array(
             'mod' => 'cargos',
-            'count' => $count,
+            'cantidad' => $count,
             'header' => 'Cargos'
         ));
     }
@@ -29,8 +30,10 @@ class CargoController extends Controller
      */
     public function create(Request $request)
     {
-        $query = $request->input('input_1');
-        return response()->json($query);
+        $nombre = $request->input('nombre');
+        $tipo = $request->input('tipo');
+        Cargo::addNew($nombre, $tipo);
+        return response()->json('ok');
     }
 
     /**
@@ -39,15 +42,25 @@ class CargoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Muestra el resultado de la busqueda
     public function store(Request $request)
     {
         $query = $request->input('query');
+        $tipo = $request->input('tipo');
+        $rows = Cargo::buscar($query, $tipo);
+
         $cargos = <<<EOT
             <div class="list-group">
-                <a href="#" class="list-group-item search-result" data-id="1">Presidente</a>
-                <a href="#" class="list-group-item search-result" data-id="2">Consejero</a>
+EOT;
+        foreach($rows as $result){
+            $cargos.=<<<EOT
+            <a href="#" class="list-group-item search-result" data-id="$result->id">$result->nombre</a>
+EOT;
+        }
+        $cargos.=<<<EOT
             </div>
 EOT;
+
         return response()->json($cargos);
     }
 
@@ -60,20 +73,29 @@ EOT;
     public function show(Request $request)
     {
         $id = $request->input('id');
-        if($id==1) {
-            $output = <<<EOT
-            <label>Nombre del cargo</label><br>
-            <label for=""> Presidente</label><br>
-            <label for="">Puto el que lo lea</label>
+        $record = Cargo::getItem($id);
+//        dd($record);
+        $output = <<<EOT
+            <div>
+                <b>Nombre</b> : <span>$record->nombre</span><br>
+EOT;
+        if($record->tipo==0){
+            $output.=<<<EOT
+               <b>Tipo</b> : <span>Cargo para Profesor</span>
+EOT;
+        }
+        elseif($record->tipo==1){
+            $output.=<<<EOT
+               <b>Tipo</b> : <span>Cargo para Egresados</span>
 EOT;
         }
         else{
-            $output = <<<EOT
-            <label>Nombre del cargo</label><br>
-            <label for="">Consejero</label><br>
-            <label for="">Puto el que lo lea</label>
+            $output.=<<<EOT
+                <b>Tipo</b> : <span>Cargo comun</span>
 EOT;
         }
+
+
         return response()->json($output);
     }
 
@@ -98,6 +120,10 @@ EOT;
      */
     public function update(Request $request)
     {
+        $id = $request->input('item_id');
+        $nombre = $request->input('nombre');
+        $tipo = $request->input('tipo');
+        Cargo::editar($id, $nombre, $tipo);
         return response()->json('hey');
     }
 
@@ -111,7 +137,7 @@ EOT;
     {
 
         $id = $request->input('id');
-
+        Cargo::borrar($id);
         return response()->json($id);
     }
 }
