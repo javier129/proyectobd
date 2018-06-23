@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Cargo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 class CargoController extends Controller
 {
     /**
@@ -15,9 +14,10 @@ class CargoController extends Controller
      */
     public function index()
     {
+        $count = Cargo::cantidad();
         return view('cargos')->with(array(
             'mod' => 'cargos',
-            'count' => 1,
+            'count' => $count,
             'header' => 'Cargos'
         ));
     }
