@@ -52,6 +52,7 @@ class CargoController extends Controller
         $cargos = <<<EOT
             <div class="list-group">
 EOT;
+        
         foreach($rows as $result){
             $cargos.=<<<EOT
             <a href="#" class="list-group-item search-result" data-id="$result->id">$result->nombre</a>

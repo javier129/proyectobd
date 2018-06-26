@@ -29,11 +29,11 @@ class Cargo extends Model
         }
         else{
             if($tipo == 3){
-                $result = DB::select("select nombre from $tabla WHERE nombre LIKE '$query%'");
+                $result = DB::select("select id, nombre from $tabla WHERE nombre LIKE '$query%'");
                 return $result;
             }
             else{
-                $result = DB::select("select nombre from $tabla WHERE nombre LIKE '$query%' and tipo = $tipo");
+                $result = DB::select("select id, nombre from $tabla WHERE nombre LIKE '$query%' and tipo = $tipo");
                 return $result;
             }
         }
