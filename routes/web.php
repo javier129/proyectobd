@@ -45,5 +45,16 @@ Route::group(['prefix' => 'admin'], function(){
     });
     ////////////////////////////////////////////////
 
+    /////////////////////Cargos por eleccion//////////
+    Route::group(['prefix' => 'CargoEleccion'], function(){
+        Route::get('/', 'CargoEleccionController@index')->name('cargo_x_eleccion.index');
+        Route::post('/buscar','CargoEleccionController@store');
+        Route::post('/add_new', 'CargoEleccionController@create');
+        Route::get('/get_item', 'CargoEleccionController@show');
+        Route::get('/delete_item', 'CargoEleccionController@destroy');
+        Route::post('/edit', 'CargoEleccionController@update');
+    });
+    ////////////////////////////////////////////////
+
 
 });

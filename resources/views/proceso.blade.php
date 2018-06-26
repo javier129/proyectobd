@@ -1,7 +1,6 @@
 @extends('layouts.menu')
 
 @section('usuario')
-    <a href="">Enmanuel</a>
 @stop
 @section('contenido-externo')
     {{--Componente para agregar nuevo--}}

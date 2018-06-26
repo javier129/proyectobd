@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Escuelas;
+use App\CargoEleccion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class EscuelasController extends Controller
+class CargoEleccionController extends Controller
 {
     const MODEL = 'CargoEleccion';
 

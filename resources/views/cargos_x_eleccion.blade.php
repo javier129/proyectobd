@@ -1,7 +1,12 @@
+{{--/**--}}
+ {{--* Created by PhpStorm.--}}
+ {{--* User: Enmanuel--}}
+ {{--* Date: 26/06/2018--}}
+ {{--* Time: 11:17--}}
+{{--*/--}}
 @extends('layouts.menu')
 
 @section('usuario')
-
 @stop
 @section('contenido-externo')
     {{--Componente para agregar nuevo--}}
@@ -14,14 +19,7 @@
     @component('componentes.search')
         @slot('mod', $mod)
         @slot('inputs')
-            <div class="form-group">
-                <label for="tipo">Buscar Por</label>
-                <select name="tipo" id="tipo" class="form-control">
-                    <option value="0">Profesores</option>
-                    <option value="1">Egresados</option>
-                    <option value="3">Todos</option>
-                </select>
-            </div>
+
         @endslot
     @endcomponent
     <br>
@@ -31,16 +29,29 @@
         @slot('mod', $mod)
         @slot('inputs')
             <div class="form-group">
-                <label for="input_1">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre">
-            </div>
-            <div class="form-group">
-                <select name="tipo" id="tipo" class="form-control">
-                    <option value="0">Profesores</option>
-                    <option value="1">Egresados</option>
-                    <option value="3">Todos</option>
+                <label for="eleccion">Eleccion</label>
+                <select name="eleccion" id="eleccion" class="form-control">
+                    @foreach($elecciones as $eleccion)
+                        <option value="{{ $eleccion->id }}">{{ $eleccion->id }}</option>
+                    @endforeach
                 </select>
             </div>
+
+            <div class="form-group">
+                <label for="cargo">Cargo</label>
+                <select multiple name="cargo" id="cargo" class="form-control">
+                    @foreach($cargos as $cargo)
+                        <option value="{{ $cargo->id }}">{{ $cargo->nombre}}</option>
+                    @endforeach
+                </select>
+            </div>
+            {{--@foreach($cargos as $cargo)--}}
+                {{--<div class="form-group">--}}
+                    {{--<input type="checkbox" value="{{ $cargo->id }}" name="cargo">--}}
+                    {{--<label for="cargo">{{ $cargo->nombre }}</label>--}}
+                {{--</div>--}}
+            {{--@endforeach--}}
+
         @endslot
     @endcomponent
 
@@ -57,13 +68,6 @@
             <div class="form-group">
                 <label for="nombre">Nombre</label>
                 <input type="text" class="form-control" id="nombre" name="nombre">
-            </div>
-            <div class="form-group">
-                <select name="tipo" id="tipo" class="form-control">
-                    <option value="0">Profesores</option>
-                    <option value="1">Egresados</option>
-                    <option value="3">Todos</option>
-                </select>
             </div>
         @endslot
     @endcomponent

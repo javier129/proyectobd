@@ -55,8 +55,8 @@
                         </ul>
                     </li> -->
                     <li><a href="{{ route('eleccion.index') }}">Elecciones</a></li>
-                    <li><a href="http://">Opcion 4</a></li>
-                    <li><a href="http://">Opcion 5</a></li>
+                    <li><a href="{{ route('cargo_x_eleccion.index') }}">Cargos por Eleccion</a></li>
+                    <li><a href="">Opcion 2</a></li>
                     <li><a href="http://">Opcion 6</a></li>
                     <li><a href="http://">Opcion 7</a></li>
                     <li><a href="http://">Opcion 8</a></li>

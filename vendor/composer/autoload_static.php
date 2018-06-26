@@ -321,6 +321,7 @@ class ComposerStaticInit0be5a42d2cb72357f2e2310d4f9bc62f
 
     public static $classMap = array (
         'App\\Cargo' => __DIR__ . '/../..' . '/app/Models/Cargo.php',
+        'App\\CargoEleccion' => __DIR__ . '/../..' . '/app/Models/CargoEleccion.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Egresados' => __DIR__ . '/../..' . '/app/Models/Egresados.php',
         'App\\EgresadosPostulados' => __DIR__ . '/../..' . '/app/Models/EgresadosPostulados.php',
@@ -334,6 +335,7 @@ class ComposerStaticInit0be5a42d2cb72357f2e2310d4f9bc62f
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\CargoController' => __DIR__ . '/../..' . '/app/Http/Controllers/CargoController.php',
+        'App\\Http\\Controllers\\CargoEleccionController' => __DIR__ . '/../..' . '/app/Http/Controllers/CargoEleccionController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\EgresadosController' => __DIR__ . '/../..' . '/app/Http/Controllers/EgresadosController.php',
         'App\\Http\\Controllers\\EgresadosPostuladosController' => __DIR__ . '/../..' . '/app/Http/Controllers/EgresadosPostuladosController.php',
