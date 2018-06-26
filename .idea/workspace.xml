@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fed2394-6ceb-4646-bd42-d5bba40aae06" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CargoController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CargoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Cargo.php" afterPath="$PROJECT_DIR$/app/Models/Cargo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2018_06_24_025429_cargos_por_eleccion.php" afterPath="$PROJECT_DIR$/database/migrations/2018_06_24_025429_cargos_por_eleccion.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +13,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="menu.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="menu.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/menu.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="549">
-              <caret line="56" column="83" lean-forward="true" selection-start-line="56" selection-start-column="83" selection-end-line="56" selection-end-column="83" />
+              <caret line="56" column="83" lean-forward="false" selection-start-line="56" selection-start-column="83" selection-end-line="56" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2018_06_24_023645_create_votos_egresados_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2018_06_24_023645_create_votos_egresados_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2018_06_24_025429_cargos_por_eleccion.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2018_06_24_025429_cargos_por_eleccion.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="22" column="87" lean-forward="true" selection-start-line="22" selection-start-column="87" selection-end-line="22" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2018_06_23_235422_create_proceso_eleccions_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2018_06_23_235422_create_proceso_eleccions_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="15" column="42" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -87,7 +115,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2018_06_24_000803_create_profesores_postulados_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_06_24_023009_create_votos_profesores_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_06_24_023645_create_votos_egresados_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2018_06_24_025429_cargos_por_eleccion.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_06_24_031411_se_postulan.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_06_24_031852_posee.php" />
         <option value="$PROJECT_DIR$/resources/views/procesoeleccion.blade.php" />
@@ -104,6 +131,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/EscuelasController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2018_06_24_025429_cargos_por_eleccion.php" />
       </list>
     </option>
   </component>
@@ -117,7 +145,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="132" />
+    <option name="x" value="-1322" />
     <option name="y" value="-8" />
     <option name="width" value="1101" />
     <option name="height" value="602" />
@@ -145,6 +173,17 @@
             <path>
               <item name="proyectobd" type="b2602c69:ProjectViewProjectNode" />
               <item name="proyectobd" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="proyectobd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="proyectobd" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="proyectobd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="proyectobd" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="migrations" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -201,15 +240,15 @@
       <workItem from="1529960474643" duration="4154000" />
       <workItem from="1529987685504" duration="3724000" />
       <workItem from="1530024362733" duration="5585000" />
-      <workItem from="1530053884967" duration="610000" />
+      <workItem from="1530053884967" duration="854000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68926000" />
+    <option name="totallyTimeSpent" value="69170000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-1374" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1566618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -364,13 +403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2018_06_23_235422_create_proceso_eleccions_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2018_06_23_235901_create_egresados_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -427,24 +459,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2018_06_24_023645_create_votos_egresados_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="68" lean-forward="false" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2018_06_24_025428_create_escuelas_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2018_06_24_025429_cargos_por_eleccion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="22" column="77" lean-forward="false" selection-start-line="22" selection-start-column="77" selection-end-line="22" selection-end-column="77" />
         </state>
       </provider>
     </entry>
@@ -573,7 +591,31 @@
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/menu.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
-          <caret line="56" column="83" lean-forward="true" selection-start-line="56" selection-start-column="83" selection-end-line="56" selection-end-column="83" />
+          <caret line="56" column="83" lean-forward="false" selection-start-line="56" selection-start-column="83" selection-end-line="56" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2018_06_24_023645_create_votos_egresados_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2018_06_23_235422_create_proceso_eleccions_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="42" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2018_06_24_025429_cargos_por_eleccion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="87" lean-forward="true" selection-start-line="22" selection-start-column="87" selection-end-line="22" selection-end-column="87" />
           <folding />
         </state>
       </provider>

@@ -20,7 +20,7 @@ class CargosPorEleccion extends Migration
             $table->primary(['id_cargos', 'id_escuelas', 'id_eleccion']);
             $table->foreign('id_cargos')->references('id')->on('cargos');
             $table->foreign('id_escuelas')->references('id')->on('escuelas');
-            $table->foreign('id_eleccion')->references('id')->on('eleccion');
+            $table->foreign('id_eleccion')->references('id')->on('proceso_elecciones');
             $table->timestamps();
         });
     }
