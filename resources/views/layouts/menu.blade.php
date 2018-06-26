@@ -46,7 +46,7 @@
         <div class="">
             <div class="sidebar">
                 <ul>
-                    <li><a href="http://">Usuarios</a></li>
+                    <li><a href="{{ route('cargos.index') }}">Cargos</a></li>
                     <!-- <li class="submenu">
                         <a href="#">Opcion 2 <span class="caret"></span></a>
                         <ul>
@@ -54,7 +54,7 @@
                             <li><a href="#">Opcion 2.2</a></li>
                         </ul>
                     </li> -->
-                    <li><a href="http://">Opcion 3</a></li>
+                    <li><a href="{{ route('eleccion.index') }}">Elecciones</a></li>
                     <li><a href="http://">Opcion 4</a></li>
                     <li><a href="http://">Opcion 5</a></li>
                     <li><a href="http://">Opcion 6</a></li>

@@ -25,7 +25,7 @@ Route::group(['prefix' => 'admin'], function(){
 
     //////////////////////Cargos////////////////////
     Route::group(['prefix' => 'cargos'], function(){
-        Route::get('/', 'CargoController@index');
+        Route::get('/', 'CargoController@index')->name('cargos.index');
         Route::post('/buscar','CargoController@store');
         Route::post('/add_new', 'CargoController@create');
         Route::get('/get_item', 'CargoController@show');
@@ -36,7 +36,7 @@ Route::group(['prefix' => 'admin'], function(){
 
     /////////////////////Proceso de elccion//////////
     Route::group(['prefix' => 'ProcesoEleccion'], function(){
-        Route::get('/', 'ProcesoEleccionController@index');
+        Route::get('/', 'ProcesoEleccionController@index')->name('eleccion.index');
         Route::post('/buscar','ProcesoEleccionController@store');
         Route::post('/add_new', 'ProcesoEleccionController@create');
         Route::get('/get_item', 'ProcesoEleccionController@show');
