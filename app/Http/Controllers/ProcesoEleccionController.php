@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 
 class ProcesoEleccionController extends Controller
 {
+
+    const MODEL = 'ProcesoEleccion';
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +18,12 @@ class ProcesoEleccionController extends Controller
      */
     public function index()
     {
-        //
+        $cantidad = ProcesoEleccion::cantidad();
+        return view('proceso')->with(array(
+            'mod' => self::MODEL,
+            'cantidad' => $cantidad,
+            'header' => 'Proceso de Eleccion'
+        ));
     }
 
     /**
@@ -23,9 +31,15 @@ class ProcesoEleccionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $id = $request->input('id');
+        $f_inicio = $request->input('f_inicio');
+        $f_fin = $request->input('f_fin');
+        $fecha_limite_postulacion = $request->input('fecha_limite_postulacion');
+        $fecha_limite_votacion = $request->input('fecha_limite_votacion');
+        ProcesoEleccion::addNew($id, $f_inicio, $f_fin, $fecha_limite_postulacion, $fecha_limite_votacion);
+        return response()->json('ok');
     }
 
     /**
@@ -34,53 +48,88 @@ class ProcesoEleccionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //Muestra el resultado de la busqueda
     public function store(Request $request)
     {
-        //
+        $query = $request->input('query');
+        $rows = ProcesoEleccion::buscar($query);
+        $output = <<<EOT
+            <div class="list-group">
+EOT;
+        foreach($rows as $result){
+            $output.=<<<EOT
+            <div class="list-group-item">
+                <a href="#" class="search-result" data-id="$result->id">$result->id</a><br>
+                <span>Fecha de inicio <b>$result->fecha_inicio</b></span><br>
+                <span>Fecha de fin <b>$result->fecha_fin</b></span>
+            </div>
+EOT;
+        }
+        $output.=<<<EOT
+            </div>
+EOT;
+
+        return response()->json($output);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\ProcesoEleccion  $procesoEleccion
+     * @param  \App\Cargo  $cargo
      * @return \Illuminate\Http\Response
      */
-    public function show(ProcesoEleccion $procesoEleccion)
+    public function show(Request $request)
     {
-        //
+        $id = $request->input('id');
+        $record = ProcesoEleccion::getItem($id);
+
+        $output = <<<EOT
+            <div>
+                <span>Eleccion: <b>$record->id</b></span><br>
+                <span>Fecha de Inicio: <b>$record->fecha_inicio</b></span><br>
+                <span>Fecha de Finalizacion: <b>$record->fecha_fin</b></span><br>
+                <span>Fecha limite de postulacion: <b>$record->fecha_limite_postulacion</b></span><br>
+                <span>Fecha limite de Votacion: <b>$record->fecha_limite_votacion</b></span>
+            </div>
+EOT;
+
+        return response()->json($output);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\ProcesoEleccion  $procesoEleccion
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ProcesoEleccion $procesoEleccion)
-    {
-        //
-    }
+
+
+
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ProcesoEleccion  $procesoEleccion
+     * @param  \App\Cargo  $cargo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProcesoEleccion $procesoEleccion)
+    public function update(Request $request)
     {
-        //
+        $id = $request->input('id');
+        $f_inicio = $request->input('f_inicio');
+        $f_fin = $request->input('f_fin');
+        $fecha_limite_postulacion = $request->input('fecha_limite_postulacion');
+        $fecha_limite_votacion = $request->input('fecha_limite_votacion');
+        ProcesoEleccion::editar($id, $f_inicio, $f_fin, $fecha_limite_postulacion, $fecha_limite_votacion);
+        return response()->json('hey');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ProcesoEleccion  $procesoEleccion
+     * @param  \App\Cargo  $cargo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProcesoEleccion $procesoEleccion)
+    public function destroy(Request $request)
     {
-        //
+
+        $id = $request->input('id');
+        ProcesoEleccion::borrar($id);
+        return response()->json($id);
     }
 }

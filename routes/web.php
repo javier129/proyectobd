@@ -34,6 +34,16 @@ Route::group(['prefix' => 'admin'], function(){
     });
     ////////////////////////////////////////////////
 
+    /////////////////////Proceso de elccion//////////
+    Route::group(['prefix' => 'ProcesoEleccion'], function(){
+        Route::get('/', 'ProcesoEleccionController@index');
+        Route::post('/buscar','ProcesoEleccionController@store');
+        Route::post('/add_new', 'ProcesoEleccionController@create');
+        Route::get('/get_item', 'ProcesoEleccionController@show');
+        Route::get('/delete_item', 'ProcesoEleccionController@destroy');
+        Route::post('/edit', 'ProcesoEleccionController@update');
+    });
+    ////////////////////////////////////////////////
 
 
 });
