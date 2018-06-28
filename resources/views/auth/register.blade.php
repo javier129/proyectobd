@@ -37,32 +37,6 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="telefono" class="col-md-4 col-form-label text-md-right">{{ __('telefono') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="telefono" type="telefono" class="form-control{{ $errors->has('telefono') ? ' is-invalid' : '' }}" name="telefono" value="{{ old('telefono') }}" required>
-
-                                @if ($errors->has('telefono'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('telefono') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -104,12 +78,11 @@
                           </label>
                         </div>
                         <div class="form-check-inline">
-                        <label class="form-check-label">
-                        <input type="radio" id='egresado' class="form-check-input" name="optradio">Egresado
-                        </label>
+                            <label class="form-check-label">
+                                <input type="radio" id='egresado' class="form-check-input" name="optradio">Egresado
+                            </label>
                         </div>
-                        </div>
-                        
+
                         <div class='hidden' id='campo'>
                             <div class="form-group row">
                                 <label for="date" class="col-2 col-form-label">Date</label>
@@ -165,11 +138,16 @@
 <script>
     $(document).ready(function(){
         $("input#egresado").click(function(){
-$('div#campo').removeClass('hidden');
-});
-$("input#profesor").click(function(){
-$('div#campo').addClass('hidden');
-});
+
+            $('div#campo').removeClass('hidden');
+            
+        });
+
+        $("input#profesor").click(function(){
+
+            $('div#campo').addClass('hidden');
+
+        });
     });
 </script>
 @endsection
