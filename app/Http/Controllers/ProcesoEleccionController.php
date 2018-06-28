@@ -99,8 +99,6 @@ EOT;
 
 
 
-
-
     /**
      * Update the specified resource in storage.
      *
@@ -110,7 +108,7 @@ EOT;
      */
     public function update(Request $request)
     {
-        $id = $request->input('id');
+        $id = $request->input('item_id');
         $f_inicio = $request->input('f_inicio');
         $f_fin = $request->input('f_fin');
         $fecha_limite_postulacion = $request->input('fecha_limite_postulacion');

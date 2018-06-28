@@ -36,7 +36,7 @@ class ProcesoEleccion extends Model
 
     public static function borrar($id){
         $tabla = self::$tabla;
-        DB::delete("DELETE FROM $tabla WHERE id = $id");
+        DB::delete("DELETE FROM $tabla WHERE id = '$id'");
     }
 
     public static function getItem($id){

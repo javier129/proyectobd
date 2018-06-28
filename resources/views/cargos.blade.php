@@ -25,7 +25,7 @@
         @endslot
     @endcomponent
     <br>
-
+    
     {{--Componente del panel para agregar nuevo registro--}}
     @component('componentes.paneladdnew')
         @slot('mod', $mod)
