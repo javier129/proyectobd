@@ -14,8 +14,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = 'usuarios';
     protected $fillable = [
-        'name', 'email', 'password',
+        'cedula',
+        'password',
     ];
 
     /**
@@ -26,4 +28,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+//    protected function create(array $data)
+//    {
+//        return User::create([
+//            'name' => $data['name'],
+//            'last_name' => $data['last_name'],
+//            'email' => $data['email'],
+//            'password' => bcrypt($data['password']),
+//        ]);
+//    }
 }
