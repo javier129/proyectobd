@@ -16,7 +16,7 @@ class LoginController extends Controller
 
     public function login(){
         $credentials = $this->validate(request(), [
-            'cedula' => 'required|integer',
+            $this->username() => 'required|integer',
             'password' => 'required|string'
         ]);
 
@@ -25,9 +25,13 @@ class LoginController extends Controller
             return redirect()->route('dashboard');
         }
 
-        return back()->withErrors(['cedula' => 'Estas credenciales no se encuentran en la base de datos'])->withInput(request(['cedula']));
+        return back()->withErrors([$this->username() => 'Estas credenciales no se encuentran en la base de datos'])->withInput(request([$this->username()]));
     }
 
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
+    }
 
     public function showLoginForm(){
         return view('auth.login');
@@ -35,7 +39,7 @@ class LoginController extends Controller
 
     public function username()
     {
-        return 'cedula';
+        return 'id';
     }
 
 }

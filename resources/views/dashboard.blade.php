@@ -1,7 +1,11 @@
 @extends('layouts.menu')
 
-@section('content')
-    Hey {{ auth()->user()->nombre }}
+@section('contenido-externo')
 
+<div class="card">
+    <div class="card-body">
+        <strong>Nombre: {{ auth()->user()->nombre }}</strong>
+    </div>
+</div>
 
 @endsection

@@ -2,9 +2,11 @@
 
 namespace App;
 
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -29,6 +31,45 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public static function crearEgresado(array $input){
+        $id = $input['id'];
+        $nombre = $input['nombre'];
+        $direccion =$input['direccion'];
+        $password = Hash::make($input['password']);
+        $tipo = $input['optionsRadios'];
+        $fecha_egreso = $input['fecha_egreso'];
+        $estado = $input['estado'];
+        $pais = $input['pais'];
+        $foto = '';
+        $count = DB::select("SELECT count(id) FROM usuarios where id = '$id'")[0]->count;
+        if($count == 1){
+            return 0;
+        }
+        DB::insert("INSERT INTO usuarios (id, nombre, direccion, password, tipo) VALUES ('$id', '$nombre', '$direccion', '$password', $tipo)");
+        DB::insert("INSERT INTO egresados (id, fecha_egreso, estado, pais, foto) VALUES ('$id', '$fecha_egreso', '$estado', '$pais', '$foto')");
+        return array(
+            'id' => $id,
+            'password' => $password
+        );
+    }
+
+    public static function crearProfesor(array $input){
+        $id = $input['id'];
+        $nombre = $input['nombre'];
+        $direccion =$input['direccion'];
+        $password = Hash::make($input['password']);
+        $tipo = $input['optionsRadios'];
+        $count = DB::select("SELECT count(id) FROM usuarios where id = '$id'")[0]->count;
+        if($count == 1){
+            return 0;
+        }
+        DB::insert("INSERT INTO usuarios (id, nombre, direccion, password, tipo) VALUES ('$id', '$nombre', '$direccion', '$password', $tipo)");
+        DB::insert("INSERT INTO profesores (id) VALUES ('$id')");
+        return array(
+            'id' => $id,
+            'password' => $password
+        );
+    }
 
 //    protected function create(array $data)
 //    {

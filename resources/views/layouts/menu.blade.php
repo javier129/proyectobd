@@ -27,7 +27,7 @@
                 <div>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">User</a>
+                            <a class="nav-link" href="#">{{ auth()->user()->nombre }}</a>
                         </li>
                         <!-- Dropdown -->
                         <li class="nav-item dropdown">
@@ -36,7 +36,11 @@
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#" style="color: #000000">Ajustes</a>
-                                <a class="dropdown-item" href="#" style="color: #000000">Cerrar Sesion</a>
+                                {{--<a class="dropdown-item" href="#" style="color: #000000">Cerrar Sesion</a>--}}
+                                <form method="POST" action="{{ route('logout') }}">
+                                    {{ csrf_field() }}
+                                    <button class="">Cerrar Sesion</button>
+                                </form>
                             </div>
                         </li>
                     </ul>
@@ -46,7 +50,7 @@
         <div class="">
             <div class="sidebar">
                 <ul>
-                    <li><a href="http://">Usuarios</a></li>
+                    <li><a href="{{ route('dashboard') }}">Inicio</a></li>
                     <!-- <li class="submenu">
                         <a href="#">Opcion 2 <span class="caret"></span></a>
                         <ul>

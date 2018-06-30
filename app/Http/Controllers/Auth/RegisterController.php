@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -61,13 +63,25 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
-
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $input = $request->all();
+        $user = '';
+        if($input['optionsRadios'] == 2){
+            $user = User::crearEgresado($input);
+        }
+        if($input['optionsRadios'] == 1){
+            $user = User::crearProfesor($input);
+        }
+        if($user == 0){
+            return back()->withErrors(['user' => 'Este usuario ya existe']);
+        }
+        return redirect()->route('/');
     }
+
+    public function showRegister(){
+        return view('auth.register');
+    }
+
+
 }

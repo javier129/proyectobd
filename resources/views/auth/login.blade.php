@@ -11,9 +11,9 @@
                     <form action="{{ route('login') }}" method="POST">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <label for="cedula">Cedula</label>
-                            <input class="form-control" type="text" value="{{ old('cedula') }}" name="cedula" placeholder="Ingresa tu cedula">
-                            {!! $errors->first('cedula', '<span class="help-block">:message</span>') !!}
+                            <label for="id">Cedula</label>
+                            <input class="form-control" type="text" value="{{ old('id') }}" name="id" placeholder="Ingresa tu cedula">
+                            {!! $errors->first('id', '<span class="help-block">:message</span>') !!}
                         </div>
                         <div class="form-group">
                             <label for="password">Contraseña</label>
@@ -23,6 +23,9 @@
 
                         <button class="btn btn-primary btn-block">Acceder</button>
                     </form>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ route('registrar') }}">Registrarse</a>
                 </div>
             </div>
         </div>

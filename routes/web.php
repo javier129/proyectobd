@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', 'Auth\LoginController@showLoginForm');
+Route::get('/', 'Auth\LoginController@showLoginForm')->name('/');
 
 Route::post('login', 'Auth\LoginController@login')->name('login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('registrar', 'Auth\RegisterController@showRegister')->name('registrar');
+Route::post('register', 'Auth\RegisterController@create')->name('register');
+
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
 //

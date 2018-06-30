@@ -1,77 +1,85 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row">
+        <div class="col-md-5 text-center" style="margin: 0 auto">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
+                <div class="card-header">
+                    <h1 class="card-tittle">Registrarse</h1>
+                </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
-                        @csrf
+                    <form action="{{ route('register') }}" method="POST">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label for="id">Cedula</label>
+                            <input class="form-control" type="text" value="{{ old('id') }}" required name="id" placeholder="Ingresa tu cedula">
+                            {!! $errors->first('user', '<span class="help-block">:message</span>') !!}
+                        </div>
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input class="form-control" type="text" required name="nombre" placeholder="Ingresa tu nombre">
+                        </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                        <div class="form-group">
+                            <label for="direccion">Direccion</label>
+                            <input class="form-control" type="text" name="direccion" required placeholder="Ingresa tu direccion">
+                        </div>
 
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input class="form-control" type="password" name="password" required placeholder="Ingresa tu contraseña">
+                            {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col">
+                                <input type="radio" class="form-control" name="optionsRadios" id="profesor" value="1" checked>
+                                <label for="">Profesor</label>
+                            </div>
+
+                            <div class="form-group col">
+                                <input type="radio" class="form-control" name="optionsRadios" id="egresado" value="2">
+                                <label for="">Egresado</label>
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <div class="form-group" id="inputs_egresados">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
+                        <button class="btn btn-primary btn-block">Registrarse</button>
                     </form>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ route('/') }}">Cancelar</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <script>
+        $(document).ready(function(){
+            var egresados = '' +
+                    '<label for="fecha_egreso">Fecha de egreso</label>'+
+                    '<input type="date" class="form-control" required name="fecha_egreso" id="fecha_egreso">'+
+                    '<label for="estado">Estado</label>'+
+                    '<input type="text" class="form-control" name="estado" id="estado">'+
+                    '<label for="pais">Pais</label>'+
+                    '<input type="text" class="form-control" name="pais" id="pais">'+
+                    '<label for="foto">Foto</label>'+
+                    '<input type="file" class="" name="foto" id="foto">';
+
+            $('#egresado').click(function(){
+                $('#inputs_egresados').append(egresados);
+            });
+            $('#profesor').click(function() {
+                $('#inputs_egresados').empty();
+            });
+
+
+
+        });
+    </script>
 @endsection
+
+
